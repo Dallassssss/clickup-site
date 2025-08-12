@@ -3,43 +3,36 @@
 <head>
   <meta charset="utf-8"/>
   <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"/>
-  <title>Кейсы — ClickUp.by</title>
-  <meta name="description" content="Кейсы ClickUp.by: реальные результаты по CPL/ROMI, примеры запусков и оптимизаций. Контекст и таргет под ключ."/>
-  <link rel="canonical" href="https://clickup.by/cases/"/>
+  <title>Кейс: Школа плавания — ClickUp.by</title>
+  <meta name="description" content="Как снизили CPL на 41% и увеличили лиды на 28% за 3 недели для школы плавания: сегментация, A/B‑тесты, ретаргет‑цепочки."/>
+  <link rel="canonical" href="https://clickup.by/cases/swim"/>
   <meta name="robots" content="index,follow"/>
   <meta name="theme-color" content="#0b0b0c"/>
-  <meta property="og:type" content="website"/>
-  <meta property="og:url" content="https://clickup.by/cases"/>
-  <meta property="og:title" content="Кейсы — ClickUp.by"/>
-  <meta property="og:description" content="Результаты клиентов: снижение CPL, рост ROMI, быстрые запуски."/>
+  <meta property="og:type" content="article"/>
+  <meta property="og:url" content="https://clickup.by/cases/swim"/>
+  <meta property="og:title" content="Кейс: Школа плавания — ClickUp.by"/>
+  <meta property="og:description" content="−41% CPL, +28% лидов за 3 недели. VK, ретаргетинг, A/B‑тесты."/>
   <link rel="icon" href="/favicon.ico" sizes="any"/>
   <link rel="icon" href="/icon.svg" type="image/svg+xml"/>
   <link rel="apple-touch-icon" href="/apple-touch-icon.png"/>
-  
-  <!-- JSON-LD в <head>, валидный JSON, не влияет на выполнение JS -->
+
+  <!-- JSON-LD: CaseStudy + Breadcrumbs (в head, валидный JSON) -->
   <script type="application/ld+json">
-  {"@context":"https://schema.org","@type":"ItemList","itemListElement":[
-    {"@type":"ListItem","position":1,"url":"https://clickup.by/cases#swim","name":"Школа плавания"},
-    {"@type":"ListItem","position":2,"url":"https://clickup.by/cases#kitchen","name":"Кухни на заказ"},
-    {"@type":"ListItem","position":3,"url":"https://clickup.by/cases#edu","name":"Онлайн‑курсы"},
-    {"@type":"ListItem","position":4,"url":"https://clickup.by/cases#clinic","name":"Медицинская клиника"},
-    {"@type":"ListItem","position":5,"url":"https://clickup.by/cases#ecom","name":"E‑commerce"},
-    {"@type":"ListItem","position":6,"url":"https://clickup.by/cases#auto","name":"Автосервис"},
-    {"@type":"ListItem","position":7,"url":"https://clickup.by/cases#realty","name":"Недвижимость"}
-  ]}
+  {"@context":"https://schema.org","@type":"CaseStudy","name":"Школа плавания","url":"https://clickup.by/cases/swim","about":{"@type":"Thing","name":"Лидогенерация для школы плавания"},"author":{"@type":"Organization","name":"ClickUp.by"},"headline":"−41% CPL и +28% лидов за 3 недели","inLanguage":"ru","isPartOf":{"@type":"CollectionPage","name":"Кейсы ClickUp.by","url":"https://clickup.by/cases"}}
+  </script>
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Главная","item":"https://clickup.by/"},{"@type":"ListItem","position":2,"name":"Кейсы","item":"https://clickup.by/cases"},{"@type":"ListItem","position":3,"name":"Школа плавания","item":"https://clickup.by/cases/swim"}]}
   </script>
 
   <style>
-    :root{--bg:#0b0b0c;--card:#151518;--text:#fff;--muted:#c9c9c9;--brand:#ff2b2b;--brand2:#d10f0f;--border:#232327;--r:16px;--r2:22px;--sh:0 12px 40px rgba(0,0,0,.35)}
+    :root{--bg:#0b0b0c;--card:#151518;--text:#fff;--muted:#c9c9c9;--brand:#ff2b2b;--brand2:#d10f0f;--border:#232327;--r:16px;--sh:0 12px 40px rgba(0,0,0,.35)}
     *{box-sizing:border-box}
     html{scroll-behavior:smooth;overflow-x:hidden}
-    body{margin:0;font:16px/1.6 system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,Noto Sans,Arial,sans-serif;background:radial-gradient(1200px 700px at 75% -10%,rgba(255,43,43,.15),transparent 60%),radial-gradient(900px 500px at -10% 10%,rgba(209,15,15,.12),transparent 55%),var(--bg);color:var(--text);-webkit-text-size-adjust:100%;-webkit-tap-highlight-color:transparent}
+    body{margin:0;font:16px/1.6 system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,Noto Sans,Arial,sans-serif;background:radial-gradient(1200px 700px at 75% -10%,rgba(255,43,43,.15),transparent 60%),radial-gradient(900px 500px at -10% 10%,rgba(209,15,15,.12),transparent 55%),var(--bg);color:var(--text);-webkit-text-size-adjust:100%;-webkit-tap-highlight-color:transparent;overflow-x:hidden}
     a{color:inherit;text-decoration:none}
     img{max-width:100%;height:auto;display:block}
-    .container{max-width:1200px;margin:0 auto;padding:0 16px}
-/* lock X-scroll and body lock on mobile menu */
-body{overflow-x:hidden}
-body.no-scroll{overflow:hidden} 
+    .container{max-width:1100px;margin:0 auto;padding:0 16px}
+    body.no-scroll{overflow:hidden}
 
     .btn{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;border:1px solid var(--border);background:rgba(255,255,255,.02);color:var(--text);padding:10px 16px;border-radius:12px;position:relative;overflow:hidden;transition:transform .2s,border-color .2s,box-shadow .2s,background-position .4s}
     .btn:hover{border-color:#2d2d32;transform:translateY(-2px);box-shadow:0 10px 24px rgba(255,43,43,.18)}
@@ -50,14 +43,10 @@ body.no-scroll{overflow:hidden}
     .btn--brand:hover{background-position:100% 50%}
     .btn--outline{border:1px solid rgba(255,43,43,.55);background:rgba(255,43,43,.06)}
     .btn--outline:hover{box-shadow:0 10px 24px rgba(255,43,43,.22), inset 0 0 0 1px rgba(255,43,43,.35)}
-/* Hover/focus polish for buttons */
-.btn:focus-visible{outline:2px solid rgba(255,43,43,.65);outline-offset:2px;box-shadow:0 0 0 4px rgba(255,43,43,.15)}
-.btn[aria-disabled="true"],.btn:disabled{opacity:.6;pointer-events:none;transform:none}
-.btn--brand::before{content:"";position:absolute;inset:-1px;background:linear-gradient(120deg,transparent 0%,rgba(255,255,255,.35) 20%,transparent 40%);transform:translateX(-150%);transition:transform .6s;pointer-events:none;mix-blend-mode:soft-light}
-.btn--brand:hover::before{transform:translateX(150%)}
-.fab__action{transition:transform .2s,border-color .2s,background .2s}
-.fab__action:hover{transform:translateY(-1px);background:rgba(255,255,255,.06);border-color:#3a3a40}
-@media (prefers-reduced-motion: reduce){.btn,.btn::after,.btn--brand{transition:none}}
+    .btn:focus-visible{outline:2px solid rgba(255,43,43,.65);outline-offset:2px;box-shadow:0 0 0 4px rgba(255,43,43,.15)}
+    .btn[aria-disabled="true"],.btn:disabled{opacity:.6;pointer-events:none;transform:none}
+    .btn--brand::before{content:"";position:absolute;inset:-1px;background:linear-gradient(120deg,transparent 0%,rgba(255,255,255,.35) 20%,transparent 40%);transform:translateX(-150%);transition:transform .6s;pointer-events:none;mix-blend-mode:soft-light}
+    .btn--brand:hover::before{transform:translateX(150%)}
 
     header{position:sticky;top:0;z-index:50;background:rgba(11,11,12,.7);border-bottom:1px solid var(--border);backdrop-filter:saturate(140%) blur(8px)}
     .nav{display:flex;align-items:center;justify-content:space-between;gap:12px;height:64px}
@@ -76,27 +65,20 @@ body.no-scroll{overflow:hidden}
 
     section{padding:56px 0}
     h1{font-size:42px;line-height:1.15;margin:14px 0 10px}
-    .lead{color:var(--muted)}
     h2{font-size:28px;margin:0 0 12px}
+    .lead{color:var(--muted)}
 
     .grid{display:grid;gap:16px}
     .grid--2{grid-template-columns:repeat(2,1fr)}
     .grid--3{grid-template-columns:repeat(3,1fr)}
 
-    /* Cases: single-column list */
-    .cases-list{grid-template-columns:1fr;max-width:1100px;margin:0 auto;gap:18px}
-
     .card{background:var(--card);border:1px solid var(--border);border-radius:var(--r);padding:18px;box-shadow:var(--sh)}
-    .kpi{display:flex;flex-wrap:wrap;gap:10px}
     .chip{display:inline-flex;align-items:center;gap:.5rem;padding:6px 10px;border:1px solid #2a2a2e;border-radius:999px;font-size:13px;color:#f1f1f1}
-    .list{display:grid;gap:10px}
-    .hero-case{border-bottom:1px solid var(--border)}
-    .case{display:grid;gap:14px}
-    .case__meta{display:flex;flex-wrap:wrap;gap:8px;color:#ffd6d6;font-weight:600}
-    .case__grid{display:grid;grid-template-columns:1.2fr .8fr;gap:16px}
-    .case__kpis{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+    .kpis{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
     .kpiCard{padding:16px;border-radius:14px;border:1px solid #2a2a2e;background:linear-gradient(180deg,rgba(255,43,43,.09),rgba(255,255,255,.02));text-align:center}
     .kpiCard strong{display:block;font-size:26px}
+
+    .row{display:grid;grid-template-columns:1.2fr .8fr;gap:16px}
 
     /* Carousel */
     .carousel{position:relative;border:1px solid var(--border);border-radius:14px;background:linear-gradient(180deg,rgba(255,255,255,.03),rgba(255,255,255,.01));overflow:hidden}
@@ -110,7 +92,7 @@ body.no-scroll{overflow:hidden}
     .carousel__btn.next{right:8px}
     .carousel__dots{position:absolute;left:0;right:0;bottom:8px;display:flex;justify-content:center;gap:6px}
     .carousel__dot{width:8px;height:8px;border-radius:999px;border:1px solid rgba(255,255,255,.5);background:rgba(255,255,255,.2)}
-    .carousel__dot.is-active{background:var(--brand);border-color:var(--brand2)}
+    .carousel__dot.is-active{background:var(--brand)}
 
     /* FAB */
     .fab{position:fixed;right:18px;bottom:24px;z-index:120}
@@ -132,50 +114,35 @@ body.no-scroll{overflow:hidden}
     .mobile-cta{position:fixed;inset:auto 0 0 0;background:rgba(11,11,12,.85);border-top:1px solid var(--border);padding:10px 16px;display:none;padding-bottom:calc(10px + env(safe-area-inset-bottom));z-index:60}
     .mobile-cta .btn{width:100%}
 
-    @media (max-width:1080px){.case__grid{grid-template-columns:1fr}}
-    @media (max-width:960px){.grid--3{grid-template-columns:1fr 1fr}}
+    @media (max-width:1080px){.row{grid-template-columns:1fr}}
 
-    /* Mobile polish for /cases */
     @media (max-width:680px){
-  .nav__links{display:none}
-  .nav{height:56px}
-
+      .nav__links{display:none}
+      .nav{height:56px}
       .burger{display:inline-flex}
-      .grid--2,.grid--3{grid-template-columns:1fr}
       h1{font-size:30px}
       section{padding:40px 0}
-      .cases-list{gap:14px}
-      .card{padding:14px}
-      .case__grid{grid-template-columns:1fr;gap:12px}
-      .case__kpis{grid-template-columns:1fr 1fr}
+      .row{grid-template-columns:1fr;gap:12px}
+      .kpis{grid-template-columns:1fr 1fr}
       .chip{font-size:12px;padding:5px 9px}
       .carousel__viewport{aspect-ratio:var(--ratio,4/3)}
       .carousel__btn{width:32px;height:32px}
       .carousel__dots{bottom:6px}
-      /* Footer mobile layout (like home) */
+      .mobile-cta{display:block}
+      main{padding-bottom:calc(84px + env(safe-area-inset-bottom))}
+      /* Footer как на главной: одна колонка по центру */
       footer .grid--3{grid-template-columns:1fr;text-align:center;gap:12px}
       footer .logo{justify-content:center}
       footer .contact li{justify-content:center}
       footer .muted a{display:inline-block;margin:4px 6px}
       footer{padding:20px 0 calc(96px + env(safe-area-inset-bottom))}
-      .mobile-cta{display:block}
-      main{padding-bottom:calc(84px + env(safe-area-inset-bottom))}
-      /* FAB above bottom CTA */
+      /* FAB над нижней панелью */
       .fab{right:16px;bottom:calc(96px + env(safe-area-inset-bottom))}
       .fab__btn{width:52px;height:52px}
       .fab__actions{right:2px;gap:12px}
     }
-    @media (max-width:360px){
-      .container{padding:0 12px}
-      h1{font-size:26px}
-      .kpiCard strong{font-size:22px}
-      .case__kpis{grid-template-columns:1fr}
-      .chip{font-size:11px;padding:4px 8px}
-    }
-    @media (max-width:320px){
-      .container{padding:0 10px}
-      h1{font-size:24px}
-    }
+    @media (max-width:360px){.container{padding:0 12px}h1{font-size:26px}.kpis{grid-template-columns:1fr}.chip{font-size:11px;padding:4px 8px}}
+    @media (max-width:320px){.container{padding:0 10px}h1{font-size:24px}}
   </style>
 </head>
 <body>
@@ -183,12 +150,12 @@ body.no-scroll{overflow:hidden}
     <div class="container nav" role="navigation" aria-label="Основная навигация">
       <a class="logo" href="/" aria-label="ClickUp.by главная"><span class="logo__dot" aria-hidden="true"></span><span>ClickUp.by</span></a>
       <nav class="nav__links" aria-label="Меню">
-        <a href="/">Главная</a>
-        <a href="/index.html#services">Услуги</a>
-        <a href="/index.html#benefits">Почему мы</a>
-        <a href="/cases" aria-current="page">Кейсы</a>
-        <a href="/index.html#process">Этапы</a>
-        <a href="/index.html#contact">Контакты</a>
+        <a href="./index.html">Главная</a>
+        <a href="./index.html#services">Услуги</a>
+        <a href="./index.html#benefits">Почему мы</a>
+        <a href="./cases.html" aria-current="page">Кейсы</a>
+        <a href="./index.html#process">Этапы</a>
+        <a href="./index.html#contact">Контакты</a>
       </nav>
       <div class="nav__cta">
         <a class="btn btn--outline" href="/index.html#contact">Коммерческое</a>
@@ -206,156 +173,61 @@ body.no-scroll{overflow:hidden}
   </header>
 
   <main id="main">
-    <section class="hero-case" aria-labelledby="title">
+    <section class="card" style="margin-top:16px" aria-labelledby="title">
       <div class="container">
-        <h1 id="title">Кейсы: реальные результаты</h1>
-        <p class="lead">Подборка проектов с цифрами: снижение CPL, рост ROMI, ускорение запуска. Ниже — кратко по каждому, внутри — детали.</p>
-        <div class="kpi" style="margin-top:10px">
-          <span class="chip">Среднее снижение CPL: 41%</span>
-          <span class="chip">ROMI до 310%</span>
-          <span class="chip">Старт от 3 дней</span>
+        <h1 id="title">Школа плавания</h1>
+        <div class="case-chips" style="display:flex;gap:10px;flex-wrap:wrap;margin-top:6px">
+          <span class="chip">VK</span>
+          <span class="chip">Ретаргетинг</span>
+          <span class="chip">A/B‑тесты</span>
+        </div>
+        <div class="kpis" style="margin-top:10px">
+          <div class="kpiCard"><span>CPL</span><strong>−41%</strong></div>
+          <div class="kpiCard"><span>Лиды</span><strong>+28%</strong></div>
+          <div class="kpiCard"><span>Срок</span><strong>3 недели</strong></div>
         </div>
       </div>
     </section>
 
-    <section id="list" aria-label="Список кейсов">
+    <section>
+      <div class="container row">
+        <article class="card" aria-labelledby="task">
+          <h2 id="task">Задача</h2>
+          <p>Снизить стоимость лида (CPL), сохранив объём заявок. На старте были неоднородные аудитории и одинаковые офферы для всех.</p>
+          <h2>Что сделали</h2>
+          <ul>
+            <li>Разделили кампании по сегментам: <em>дети</em>, <em>взрослые</em>, <em>начинающие</em>, <em>спорт</em>.</li>
+            <li>Протестировали 12 креативов и 5 офферов (A/B‑тесты заголовков и призывов).</li>
+            <li>Собрали ретаргет‑цепочки: просмотр сайта → квиз → запись на пробное.</li>
+            <li>Подключили UTM‑архитектуру и события (отправка формы / клик по телефону).</li>
+            <li>Оптимизировали график показов и частоту по сегментам.</li>
+          </ul>
+          <h2>Результаты</h2>
+          <ul>
+            <li>Снижение CPL на <strong>41%</strong> без потери объёма.</li>
+            <li>Рост заявок на <strong>28%</strong> (за счёт ретаргета и релевантных офферов).</li>
+            <li>Время до первого результата — <strong>3 недели</strong>.</li>
+          </ul>
+          <div style="margin-top:10px;display:flex;gap:10px;flex-wrap:wrap">
+            <a class="btn btn--brand" href="./index.html#contact">Получить коммерческое</a>
+            <a class="btn btn--outline" href="./cases.html">← Все кейсы</a>
+          </div>
+        </article>
+        <aside class="carousel" data-srcs="/img/cases/swim/1.jpg,/img/cases/swim/2.jpg,/img/cases/swim/3.jpg" data-alt="Школа плавания — креатив" data-ratio="4/3"></aside>
+      </div>
+    </section>
+
+    <section>
       <div class="container">
-        <div class="grid cases-list">
-
-          <article class="card case" id="swim">
-            <h2>Школа плавания</h2>
-            <div class="case__meta"><span class="chip">VK</span><span class="chip">Ретаргетинг</span><span class="chip">A/B‑тесты</span></div>
-            <div class="case__grid">
-              <div class="list">
-                <p><strong>Задача:</strong> снизить CPL без потери объёма.</p>
-                <p><strong>Что сделали:</strong> мультитест креативов/офферов, сегментация аудиторий, ретаргет‑цепочки.</p>
-                <p><strong>Результат:</strong> −41% CPL за 3 недели.</p>
-                <div class="case__kpis">
-                  <div class="kpiCard"><span>CPL</span><strong>−41%</strong></div>
-                  <div class="kpiCard"><span>Лиды</span><strong>+28%</strong></div>
-                  <div class="kpiCard"><span>Срок</span><strong>3 нед.</strong></div>
-                </div>
-                <a class="btn btn--outline" href="./swim.html">Подробнее</a>
-              </div>
-              <div class="carousel" data-srcs="/img/cases/swim/1.jpg,/img/cases/swim/2.jpg,/img/cases/swim/3.jpg" data-alt="Школа плавания — креатив"></div>
-            </div>
-          </article>
-
-          <article class="card case" id="kitchen">
-            <h2>Кухни на заказ</h2>
-            <div class="case__meta"><span class="chip">Яндекс Директ</span><span class="chip">Поиск</span></div>
-            <div class="case__grid">
-              <div class="list">
-                <p><strong>Задача:</strong> вырасти в лидах при прежнем бюджете.</p>
-                <p><strong>Что сделали:</strong> перестроили структуру кампаний, минус‑слова, корректировки ставок, объявления.</p>
-                <p><strong>Результат:</strong> +72% лидов за 45 дней.</p>
-                <div class="case__kpis">
-                  <div class="kpiCard"><span>Лиды</span><strong>+72%</strong></div>
-                  <div class="kpiCard"><span>ROMI</span><strong>+58%</strong></div>
-                  <div class="kpiCard"><span>Срок</span><strong>45 дн.</strong></div>
-                </div>
-                <a class="btn btn--outline" href="/cases/kitchen">Подробнее</a>
-              </div>
-              <div class="carousel" data-srcs="/img/cases/kitchen/1.jpg,/img/cases/kitchen/2.jpg,/img/cases/kitchen/3.jpg" data-alt="Кухни — креатив"></div>
-            </div>
-          </article>
-
-          <article class="card case" id="edu">
-            <h2>Онлайн‑курсы</h2>
-            <div class="case__meta"><span class="chip">РСЯ</span><span class="chip">Квиз</span></div>
-            <div class="case__grid">
-              <div class="list">
-                <p><strong>Задача:</strong> поднять ROMI и конверсию.</p>
-                <p><strong>Что сделали:</strong> квиз‑лендинг, пересборка аудиторий, корректировки и UTM‑архитектура.</p>
-                <p><strong>Результат:</strong> ROMI 310%.</p>
-                <div class="case__kpis">
-                  <div class="kpiCard"><span>ROMI</span><strong>310%</strong></div>
-                  <div class="kpiCard"><span>CR</span><strong>+36%</strong></div>
-                  <div class="kpiCard"><span>Срок</span><strong>30 дн.</strong></div>
-                </div>
-                <a class="btn btn--outline" href="/cases/edu">Подробнее</a>
-              </div>
-              <div class="carousel" data-srcs="/img/cases/edu/1.jpg,/img/cases/edu/2.jpg,/img/cases/edu/3.jpg" data-alt="Онлайн‑курсы — креатив"></div>
-            </div>
-          </article>
-
-          <article class="card case" id="clinic">
-            <h2>Медицинская клиника</h2>
-            <div class="case__meta"><span class="chip">Яндекс Директ</span><span class="chip">РСЯ</span></div>
-            <div class="case__grid">
-              <div class="list">
-                <p><strong>Задача:</strong> увеличить записи по ключевым услугам.</p>
-                <p><strong>Что сделали:</strong> сквозная аналитика, переразметка объявлений, РСЯ по интересам.</p>
-                <p><strong>Результат:</strong> −33% CPL и +47% заявок за 30 дней.</p>
-                <div class="case__kpis">
-                  <div class="kpiCard"><span>CPL</span><strong>−33%</strong></div>
-                  <div class="kpiCard"><span>Лиды</span><strong>+47%</strong></div>
-                  <div class="kpiCard"><span>Срок</span><strong>30 дн.</strong></div>
-                </div>
-                <a class="btn btn--outline" href="/cases/clinic">Подробнее</a>
-              </div>
-              <div class="carousel" data-srcs="/img/cases/clinic/1.jpg,/img/cases/clinic/2.jpg,/img/cases/clinic/3.jpg" data-alt="Медицинская клиника — креатив"></div>
-            </div>
-          </article>
-
-          <article class="card case" id="ecom">
-            <h2>E‑commerce</h2>
-            <div class="case__meta"><span class="chip">Яндекс Директ</span><span class="chip">Поиск</span><span class="chip">Ретаргетинг</span></div>
-            <div class="case__grid">
-              <div class="list">
-                <p><strong>Задача:</strong> вырасти в выручке без роста CPA.</p>
-                <p><strong>Что сделали:</strong> структура по SKU, фиды, ремаркетинг, смарт-стратегии.</p>
-                <p><strong>Результат:</strong> +62% выручки, −18% CPA за 45 дней.</p>
-                <div class="case__kpis">
-                  <div class="kpiCard"><span>Выручка</span><strong>+62%</strong></div>
-                  <div class="kpiCard"><span>CPA</span><strong>−18%</strong></div>
-                  <div class="kpiCard"><span>Срок</span><strong>45 дн.</strong></div>
-                </div>
-                <a class="btn btn--outline" href="/cases/ecom">Подробнее</a>
-              </div>
-              <div class="carousel" data-srcs="/img/cases/ecom/1.jpg,/img/cases/ecom/2.jpg,/img/cases/ecom/3.jpg" data-alt="E‑commerce — креатив"></div>
-            </div>
-          </article>
-
-          <article class="card case" id="auto">
-            <h2>Автосервис</h2>
-            <div class="case__meta"><span class="chip">VK</span><span class="chip">Лид‑форма</span><span class="chip">Гео‑таргетинг</span></div>
-            <div class="case__grid">
-              <div class="list">
-                <p><strong>Задача:</strong> нарастить лиды СТО в радиусе 10 км.</p>
-                <p><strong>Что сделали:</strong> локальные аудитории, лид‑форма с акцией, ретаргет по посетителям.</p>
-                <p><strong>Результат:</strong> −38% CPL и +55% лидов за 21 день.</p>
-                <div class="case__kpis">
-                  <div class="kpiCard"><span>CPL</span><strong>−38%</strong></div>
-                  <div class="kpiCard"><span>Лиды</span><strong>+55%</strong></div>
-                  <div class="kpiCard"><span>Срок</span><strong>21 дн.</strong></div>
-                </div>
-                <a class="btn btn--outline" href="/cases/auto">Подробнее</a>
-              </div>
-              <div class="carousel" data-srcs="/img/cases/auto/1.jpg,/img/cases/auto/2.jpg,/img/cases/auto/3.jpg" data-alt="Автосервис — креатив"></div>
-            </div>
-          </article>
-
-          <article class="card case" id="realty">
-            <h2>Недвижимость</h2>
-            <div class="case__meta"><span class="chip">РСЯ</span><span class="chip">Поиск</span><span class="chip">Похожие аудитории</span></div>
-            <div class="case__grid">
-              <div class="list">
-                <p><strong>Задача:</strong> собрать заявки на квартиры комфорт‑класса.</p>
-                <p><strong>Что сделали:</strong> кластеризация запросов, минуса, баннеры в РСЯ и ретаргет цепочки.</p>
-                <p><strong>Результат:</strong> −27% CPL и +32% CR за 60 дней.</p>
-                <div class="case__kpis">
-                  <div class="kpiCard"><span>CPL</span><strong>−27%</strong></div>
-                  <div class="kpiCard"><span>CR</span><strong>+32%</strong></div>
-                  <div class="kpiCard"><span>Срок</span><strong>60 дн.</strong></div>
-                </div>
-                <a class="btn btn--outline" href="/cases/realty">Подробнее</a>
-              </div>
-              <div class="carousel" data-srcs="/img/cases/realty/1.jpg,/img/cases/realty/2.jpg,/img/cases/realty/3.jpg" data-alt="Недвижимость — креатив"></div>
-            </div>
-          </article>
-
-        </div></div>
+        <article class="card">
+          <h2>Инсайты</h2>
+          <ul>
+            <li>Короткие офферы («Пробное занятие 0 BYN») обгоняют длинные описания на 23–27% по CTR.</li>
+            <li>Квиз с 4 шагами конвертит лучше, чем 6 шагов, при сопоставимом качестве заявки.</li>
+            <li>Самые «дорогие» сегменты окупились в ретаргете (видео 6–10 сек + УТП).</li>
+          </ul>
+        </article>
+      </div>
     </section>
   </main>
 
@@ -376,7 +248,7 @@ body.no-scroll{overflow:hidden}
         </div>
         <div>
           <p><strong>Навигация</strong></p>
-          <p class="muted"><a href="/index.html#services">Услуги</a> · <a href="/index.html#benefits">Преимущества</a> · <a href="/cases">Кейсы</a> · <a href="/index.html#process">Этапы</a> · <a href="/index.html#contact">Контакты</a></p>
+          <p class="muted"><a href="./index.html#services">Услуги</a> · <a href="./index.html#benefits">Почему мы</a> · <a href="./cases.html">Кейсы</a> · <a href="./index.html#process">Этапы</a> · <a href="./index.html#contact">Контакты</a></p>
         </div>
       </div>
       <p class="muted" style="margin-top:16px">© <span id="year"></span> ClickUp.by</p>
@@ -385,7 +257,7 @@ body.no-scroll{overflow:hidden}
 
   <div class="mobile-cta" role="region" aria-label="Быстрая заявка"><div class="container"><a class="btn btn--brand" href="/index.html#contact">Получить коммерческое</a></div></div>
 
-  <!-- FAB: чат-виджет -->
+  <!-- FAB -->
   <div class="fab" id="fab" aria-expanded="false">
     <button class="fab__btn" id="fabBtn" aria-label="Открыть чат">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
@@ -405,7 +277,7 @@ body.no-scroll{overflow:hidden}
   <noscript>Для корректной отправки формы включите JavaScript.</noscript>
 
   <script>
-    // ---- Навигация (бургер) ----
+    // Навигация (бургер)
     const burger=document.getElementById('burger');
     const mobileMenu=document.getElementById('mobileMenu');
     function setMenu(open){
@@ -422,20 +294,13 @@ body.no-scroll{overflow:hidden}
       document.querySelectorAll('#mobileMenu a').forEach(a=>a.addEventListener('click',()=>setMenu(false)));
     });
 
-    // ---- Год в футере ----
+    // Год в футере
     document.getElementById('year').textContent=new Date().getFullYear();
 
-    // ---- FAB ----
-    (()=>{
-      const fab=document.getElementById('fab'), btn=document.getElementById('fabBtn');
-      if(!fab||!btn) return;
-      const toggle=o=>{ fab.setAttribute('aria-expanded', String(o)); fab.classList.toggle('open', o); };
-      btn.addEventListener('click',()=>toggle(!(fab.getAttribute('aria-expanded')==='true')));
-      document.addEventListener('click',e=>{ if(!fab.contains(e.target)) toggle(false); });
-      document.addEventListener('keydown',e=>{ if(e.key==='Escape') toggle(false); });
-    })();
+    // FAB
+    (()=>{const fab=document.getElementById('fab'), btn=document.getElementById('fabBtn'); if(!fab||!btn) return; const toggle=o=>{fab.setAttribute('aria-expanded',String(o)); fab.classList.toggle('open',o)}; btn.addEventListener('click',()=>toggle(!(fab.getAttribute('aria-expanded')==='true'))); document.addEventListener('click',e=>{if(!fab.contains(e.target)) toggle(false)}); document.addEventListener('keydown',e=>{if(e.key==='Escape') toggle(false)})})();
 
-    // ---- Карусель ----
+    // Карусель
     function initCarousel(root){
       const srcs=(root.dataset.srcs||'').split(',').map(s=>s.trim()).filter(Boolean);
       if(!srcs.length) return;
@@ -445,18 +310,18 @@ body.no-scroll{overflow:hidden}
       const ratio=root.dataset.ratio; if(ratio) vp.style.aspectRatio=ratio;
       const track=document.createElement('div'); track.className='carousel__track';
       vp.append(track); root.append(vp);
-      srcs.forEach((src,i)=>{ const s=document.createElement('div'); s.className='carousel__slide'; const img=new Image(); img.src=src; img.loading='lazy'; img.alt=(root.dataset.alt||'Креатив')+` ${i+1}`; s.append(img); track.append(s); });
-      let i=0, delta=0; const n=srcs.length;
+      srcs.forEach((src,i)=>{const s=document.createElement('div'); s.className='carousel__slide'; const img=new Image(); img.src=src; img.loading='lazy'; img.alt=(root.dataset.alt||'Креатив')+` ${i+1}`; s.append(img); track.append(s)});
+      let i=0,delta=0; const n=srcs.length;
       const dots=document.createElement('div'); dots.className='carousel__dots';
-      const set=j=>{ i=(j+n)%n; track.style.transform=`translateX(${-i*100}%)`; [...dots.children].forEach((d,k)=>d.classList.toggle('is-active',k===i)); };
+      const set=j=>{i=(j+n)%n; track.style.transform=`translateX(${-i*100}%)`; [...dots.children].forEach((d,k)=>d.classList.toggle('is-active',k===i))};
       const prev=document.createElement('button'); prev.className='carousel__btn prev'; prev.setAttribute('aria-label','Предыдущий'); prev.textContent='‹';
       const next=document.createElement('button'); next.className='carousel__btn next'; next.setAttribute('aria-label','Следующий'); next.textContent='›';
       prev.onclick=()=>set(i-1); next.onclick=()=>set(i+1); root.append(prev,next);
-      for(let k=0;k<n;k++){ const b=document.createElement('button'); b.className='carousel__dot'; b.onclick=(()=>set(k)); dots.append(b); }
+      for(let k=0;k<n;k++){const b=document.createElement('button'); b.className='carousel__dot'; b.onclick=(()=>set(k)); dots.append(b)}
       root.append(dots);
-      let start=0,drag=false; const onDown=e=>{ drag=true; root.classList.add('drag'); start=(e.touches?e.touches[0].clientX:e.clientX); };
-      const onMove=e=>{ if(!drag) return; const x=(e.touches?e.touches[0].clientX:e.clientX); delta=((x-start)/vp.clientWidth)*100; track.style.transform=`translateX(${(-i*100)+delta}%)`; };
-      const onUp=()=>{ if(!drag) return; drag=false; root.classList.remove('drag'); if(delta>15) set(i-1); else if(delta<-15) set(i+1); else set(i); delta=0; };
+      let start=0,drag=false; const onDown=e=>{drag=true; root.classList.add('drag'); start=(e.touches?e.touches[0].clientX:e.clientX)};
+      const onMove=e=>{if(!drag) return; const x=(e.touches?e.touches[0].clientX:e.clientX); delta=((x-start)/vp.clientWidth)*100; track.style.transform=`translateX(${(-i*100)+delta}%)`};
+      const onUp=()=>{if(!drag) return; drag=false; root.classList.remove('drag'); if(delta>15) set(i-1); else if(delta<-15) set(i+1); else set(i); delta=0};
       vp.addEventListener('pointerdown',onDown); window.addEventListener('pointermove',onMove); window.addEventListener('pointerup',onUp);
       vp.addEventListener('touchstart',onDown,{passive:true}); window.addEventListener('touchmove',onMove,{passive:true}); window.addEventListener('touchend',onUp);
       set(0);
@@ -464,25 +329,19 @@ body.no-scroll{overflow:hidden}
 
     document.addEventListener('DOMContentLoaded',()=>{
       document.querySelectorAll('.carousel').forEach(initCarousel);
-      // dynamic radial highlight on buttons
       document.querySelectorAll('.btn').forEach(b=>{
-        b.addEventListener('pointermove',e=>{const r=b.getBoundingClientRect();b.style.setProperty('--x', (e.clientX-r.left)+'px');b.style.setProperty('--y',(e.clientY-r.top)+'px')});
+        b.addEventListener('pointermove',e=>{const r=b.getBoundingClientRect();b.style.setProperty('--x',(e.clientX-r.left)+'px');b.style.setProperty('--y',(e.clientY-r.top)+'px')});
         b.addEventListener('pointerleave',()=>{b.style.removeProperty('--x');b.style.removeProperty('--y')});
       });
-      runTests(); // запустим тесты после инициализации
+      runTests();
     });
 
-    // ---- Мини-тесты (smoke tests) ----
+    // Простые smoke‑тесты без UI бейджа
     function runTests(){
-      const results=[]; const test=(name,fn)=>{ try{ fn(); results.push({name,ok:true}); }catch(e){ console.error(name,e); results.push({name,ok:false,err:String(e)}); } };
-      // Test 1: JSON-LD валиден
-      test('JSON-LD parses', ()=>{ document.querySelectorAll('script[type="application/ld+json"]').forEach(s=>JSON.parse(s.textContent)); });
-      // Test 2: инициализированы карусели
-      test('Carousels init', ()=>{ const n=document.querySelectorAll('.carousel .carousel__viewport').length; if(n===0) throw new Error('no carousels'); });
-      // Test 3: бургер переключает aria-expanded
-      test('Burger toggles', ()=>{ const was=burger.getAttribute('aria-expanded'); setMenu(true); if(burger.getAttribute('aria-expanded')!=="true") throw new Error('not opened'); setMenu(false); if(burger.getAttribute('aria-expanded')!=="false") throw new Error('not closed'); if(was) burger.setAttribute('aria-expanded',was); });
-      const ok=results.every(r=>r.ok);
-      const el=document.getElementById('test-status'); if(el) el.textContent = ok? 'TESTS: OK' : 'TESTS: FAIL';
+      const test=(name,fn)=>{try{fn();console.debug('[OK]',name)}catch(e){console.error('[FAIL]',name,e)}};
+      test('JSON-LD parses',()=>{document.querySelectorAll('script[type="application/ld+json"]').forEach(s=>JSON.parse(s.textContent||'{}'))});
+      test('Carousel exists',()=>{if(!document.querySelector('.carousel')) throw new Error('no carousel')});
+      test('Burger toggles',()=>{const was=burger.getAttribute('aria-expanded'); setMenu(true); if(burger.getAttribute('aria-expanded')!=="true") throw 0; setMenu(false); if(burger.getAttribute('aria-expanded')!=="false") throw 0; if(was) burger.setAttribute('aria-expanded',was)});
     }
   </script>
 </body>
