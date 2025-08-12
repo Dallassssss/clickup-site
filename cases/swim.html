@@ -81,8 +81,8 @@
     .row{display:grid;grid-template-columns:1.2fr .8fr;gap:16px}
 
     /* Carousel */
-    .carousel{position:relative;border:1px solid var(--border);border-radius:14px;background:linear-gradient(180deg,rgba(255,255,255,.03),rgba(255,255,255,.01));overflow:hidden}
-    .carousel__viewport{width:100%;aspect-ratio:16/10}
+    .carousel{position:relative;border:1px solid var(--border);border-radius:14px;background:linear-gradient(180deg,rgba(255,255,255,.03),rgba(255,255,255,.01));overflow:hidden;aspect-ratio:1/1}
+    .carousel__viewport{width:100%;aspect-ratio:1/1}
     .carousel__track{display:flex;height:100%;transition:transform .35s ease;will-change:transform}
     .carousel.drag .carousel__track{transition:none}
     .carousel__slide{flex:0 0 100%;display:grid;place-items:center}
@@ -125,7 +125,7 @@
       .row{grid-template-columns:1fr;gap:12px}
       .kpis{grid-template-columns:1fr 1fr}
       .chip{font-size:12px;padding:5px 9px}
-      .carousel__viewport{aspect-ratio:var(--ratio,4/3)}
+      .carousel__viewport{aspect-ratio:var(--ratio,1/1)}
       .carousel__btn{width:32px;height:32px}
       .carousel__dots{bottom:6px}
       .mobile-cta{display:block}
@@ -150,12 +150,12 @@
     <div class="container nav" role="navigation" aria-label="Основная навигация">
       <a class="logo" href="/" aria-label="ClickUp.by главная"><span class="logo__dot" aria-hidden="true"></span><span>ClickUp.by</span></a>
       <nav class="nav__links" aria-label="Меню">
-        <a href="./index.html">Главная</a>
-        <a href="./index.html#services">Услуги</a>
-        <a href="./index.html#benefits">Почему мы</a>
-        <a href="./cases.html" aria-current="page">Кейсы</a>
-        <a href="./index.html#process">Этапы</a>
-        <a href="./index.html#contact">Контакты</a>
+        <a href="/">Главная</a>
+        <a href="/index.html#services">Услуги</a>
+        <a href="/index.html#benefits">Почему мы</a>
+        <a href="/cases" aria-current="page">Кейсы</a>
+        <a href="/index.html#process">Этапы</a>
+        <a href="/index.html#contact">Контакты</a>
       </nav>
       <div class="nav__cta">
         <a class="btn btn--outline" href="/index.html#contact">Коммерческое</a>
@@ -163,12 +163,12 @@
       </div>
     </div>
     <nav id="mobileMenu" class="container mobile-nav" aria-label="Мобильное меню">
-      <a href="/" style="padding-left: 15px;">Главная</a>
-      <a href="/index.html#services" style="padding-left: 15px;">Услуги</a>
-      <a href="/index.html#benefits" style="padding-left: 15px;">Почему мы</a>
-      <a href="/cases" style="padding-left: 15px;">Кейсы</a>
-      <a href="/index.html#process" style="padding-left: 15px;">Этапы</a>
-      <a href="/index.html#contact" style="padding-left: 15px;">Контакты</a>
+      <a href="/">Главная</a>
+      <a href="/index.html#services">Услуги</a>
+      <a href="/index.html#benefits">Почему мы</a>
+      <a href="/cases">Кейсы</a>
+      <a href="/index.html#process">Этапы</a>
+      <a href="/index.html#contact">Контакты</a>
     </nav>
   </header>
 
@@ -209,11 +209,11 @@
             <li>Время до первого результата — <strong>3 недели</strong>.</li>
           </ul>
           <div style="margin-top:10px;display:flex;gap:10px;flex-wrap:wrap">
-            <a class="btn btn--brand" href="./index.html#contact">Получить коммерческое</a>
-            <a class="btn btn--outline" href="../cases/">← Все кейсы</a>
+            <a class="btn btn--brand" href="/index.html#contact">Получить коммерческое</a>
+            <a class="btn btn--outline" href="/cases">← Все кейсы</a>
           </div>
         </article>
-        <aside class="carousel" data-srcs="/img/cases/swim/1.jpg,/img/cases/swim/2.jpg,/img/cases/swim/3.jpg" data-alt="Школа плавания — креатив" data-ratio="4/3"></aside>
+        <aside class="carousel" data-srcs="/img/cases/swim/1.jpg,/img/cases/swim/2.jpg,/img/cases/swim/3.jpg" data-alt="Школа плавания — креатив" data-ratio="1/1"></aside>
       </div>
     </section>
 
@@ -248,7 +248,7 @@
         </div>
         <div>
           <p><strong>Навигация</strong></p>
-          <p class="muted"><a href="./index.html#services">Услуги</a> · <a href="./index.html#benefits">Почему мы</a> · <a href="./cases.html">Кейсы</a> · <a href="./index.html#process">Этапы</a> · <a href="./index.html#contact">Контакты</a></p>
+          <p class="muted"><a href="/index.html#services">Услуги</a> · <a href="/index.html#benefits">Преимущества</a> · <a href="/cases">Кейсы</a> · <a href="/index.html#process">Этапы</a> · <a href="/index.html#contact">Контакты</a></p>
         </div>
       </div>
       <p class="muted" style="margin-top:16px">© <span id="year"></span> ClickUp.by</p>
@@ -307,24 +307,28 @@
       root.classList.add('is-ready');
       const vp=document.createElement('div');
       vp.className='carousel__viewport';
-      const ratio=root.dataset.ratio; if(ratio) vp.style.aspectRatio=ratio;
+      vp.style.aspectRatio='1/1';
       const track=document.createElement('div'); track.className='carousel__track';
       vp.append(track); root.append(vp);
       srcs.forEach((src,i)=>{const s=document.createElement('div'); s.className='carousel__slide'; const img=new Image(); img.src=src; img.loading='lazy'; img.alt=(root.dataset.alt||'Креатив')+` ${i+1}`; s.append(img); track.append(s)});
       let i=0,delta=0; const n=srcs.length;
+      // autoplay 5s
+      let autoTimer=null;
+      const startAuto=()=>{ if(autoTimer) clearInterval(autoTimer); autoTimer=setInterval(()=>set(i+1),5000); };
+      const stopAuto =()=>{ if(autoTimer){ clearInterval(autoTimer); autoTimer=null; } };
       const dots=document.createElement('div'); dots.className='carousel__dots';
       const set=j=>{i=(j+n)%n; track.style.transform=`translateX(${-i*100}%)`; [...dots.children].forEach((d,k)=>d.classList.toggle('is-active',k===i))};
       const prev=document.createElement('button'); prev.className='carousel__btn prev'; prev.setAttribute('aria-label','Предыдущий'); prev.textContent='‹';
       const next=document.createElement('button'); next.className='carousel__btn next'; next.setAttribute('aria-label','Следующий'); next.textContent='›';
-      prev.onclick=()=>set(i-1); next.onclick=()=>set(i+1); root.append(prev,next);
-      for(let k=0;k<n;k++){const b=document.createElement('button'); b.className='carousel__dot'; b.onclick=(()=>set(k)); dots.append(b)}
+      prev.onclick=()=>{ set(i-1); startAuto(); }; next.onclick=()=>{ set(i+1); startAuto(); }; root.append(prev,next);
+      for(let k=0;k<n;k++){const b=document.createElement('button'); b.className='carousel__dot'; b.onclick=(()=>{ set(k); startAuto(); }); dots.append(b)}
       root.append(dots);
-      let start=0,drag=false; const onDown=e=>{drag=true; root.classList.add('drag'); start=(e.touches?e.touches[0].clientX:e.clientX)};
+      let start=0,drag=false; const onDown=e=>{ stopAuto(); drag=true; root.classList.add('drag'); start=(e.touches?e.touches[0].clientX:e.clientX)};
       const onMove=e=>{if(!drag) return; const x=(e.touches?e.touches[0].clientX:e.clientX); delta=((x-start)/vp.clientWidth)*100; track.style.transform=`translateX(${(-i*100)+delta}%)`};
-      const onUp=()=>{if(!drag) return; drag=false; root.classList.remove('drag'); if(delta>15) set(i-1); else if(delta<-15) set(i+1); else set(i); delta=0};
+      const onUp=()=>{if(!drag) return; drag=false; root.classList.remove('drag'); if(delta>15) set(i-1); else if(delta<-15) set(i+1); else set(i); delta=0; startAuto();};
       vp.addEventListener('pointerdown',onDown); window.addEventListener('pointermove',onMove); window.addEventListener('pointerup',onUp);
       vp.addEventListener('touchstart',onDown,{passive:true}); window.addEventListener('touchmove',onMove,{passive:true}); window.addEventListener('touchend',onUp);
-      set(0);
+      set(0); startAuto();
     }
 
     document.addEventListener('DOMContentLoaded',()=>{
@@ -346,7 +350,3 @@
   </script>
 </body>
 </html>
-
-
-
-
