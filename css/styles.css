@@ -1011,3 +1011,186 @@ body.no-scroll {
         padding: 0 10px;
     }
 }
+
+/* Case Studies Page Styles */
+.kpiCard {
+    padding: 16px;
+    border-radius: 14px;
+    border: 1px solid #2a2a2e;
+    background: linear-gradient(180deg, rgba(255,43,43,.09), rgba(255,255,255,.02));
+    text-align: center;
+}
+
+.kpiCard strong {
+    display: block;
+    font-size: 26px;
+}
+
+/* Carousel */
+.carousel {
+    position: relative;
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    background: linear-gradient(180deg, rgba(255,255,255,.03), rgba(255,255,255,.01));
+    overflow: hidden;
+}
+
+.carousel__viewport {
+    width: 100%;
+    aspect-ratio: 1/1;
+}
+
+.carousel__track {
+    display: flex;
+    height: 100%;
+    transition: transform .35s ease;
+    will-change: transform;
+}
+
+.carousel.drag .carousel__track {
+    transition: none;
+}
+
+.carousel__slide {
+    flex: 0 0 100%;
+    display: grid;
+    place-items: center;
+}
+
+.carousel__slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.carousel__btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    border: 1px solid var(--border);
+    background: rgba(0,0,0,.45);
+    color: #fff;
+    display: grid;
+    place-items: center;
+    cursor: pointer;
+}
+
+.carousel__btn.prev {
+    left: 8px;
+}
+
+.carousel__btn.next {
+    right: 8px;
+}
+
+.carousel__dots {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 8px;
+    display: flex;
+    justify-content: center;
+    gap: 6px;
+}
+
+.carousel__dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 999px;
+    border: 1px solid rgba(255,255,255,.5);
+    background: rgba(255,255,255,.2);
+}
+
+.carousel__dot.is-active {
+    background: var(--brand);
+    border-color: var(--brand2);
+}
+
+/* Case Studies Layout */
+.case__grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    align-items: start;
+}
+
+.case__kpis {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 8px;
+    margin: 16px 0;
+}
+
+.case__meta {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin: 8px 0;
+}
+
+.cases-list {
+    display: grid;
+    gap: 20px;
+}
+
+.hero-case {
+    padding: 40px 0;
+    text-align: center;
+}
+
+.hero-case .lead {
+    font-size: 18px;
+    color: var(--muted);
+    margin: 16px 0;
+}
+
+.hero-case .kpi {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+/* Mobile styles for cases */
+@media (max-width: 1080px) {
+    .case__grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 680px) {
+    .case__kpis {
+        grid-template-columns: 1fr 1fr;
+    }
+    
+    .carousel {
+        aspect-ratio: 1/1;
+    }
+    
+    .carousel__viewport {
+        aspect-ratio: 1/1;
+    }
+    
+    .carousel__btn {
+        width: 32px;
+        height: 32px;
+    }
+    
+    .carousel__dots {
+        bottom: 6px;
+    }
+    
+    .kpiCard strong {
+        font-size: 22px;
+    }
+}
+
+@media (max-width: 360px) {
+    .case__kpis {
+        grid-template-columns: 1fr;
+    }
+}
