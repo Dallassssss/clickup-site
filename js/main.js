@@ -160,6 +160,42 @@ function initButtonEffects() {
     });
 }
 
+// Back to Top Button functionality
+function initBackToTop() {
+    const backToTopBtn = document.getElementById('backToTop');
+    if (!backToTopBtn) return;
+    
+    // Show/hide button based on scroll position
+    function toggleBackToTop() {
+        const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+        if (scrollTop > 300) {
+            backToTopBtn.style.display = 'flex';
+            setTimeout(() => backToTopBtn.classList.add('visible'), 10);
+        } else {
+            backToTopBtn.classList.remove('visible');
+            setTimeout(() => {
+                if (!backToTopBtn.classList.contains('visible')) {
+                    backToTopBtn.style.display = 'none';
+                }
+            }, 300);
+        }
+    }
+    
+    // Scroll to top when button is clicked
+    backToTopBtn.addEventListener('click', () => {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    });
+    
+    // Listen for scroll events
+    window.addEventListener('scroll', toggleBackToTop);
+    
+    // Initial check
+    toggleBackToTop();
+}
+
 // FAB (Floating Action Button) functionality
 function initFAB() {
     const fab = document.getElementById('fab');
@@ -391,6 +427,9 @@ document.addEventListener('DOMContentLoaded', () => {
     // Initialize button effects
     initButtonEffects();
     
+    // Initialize Back to Top button
+    initBackToTop();
+    
     // Initialize FAB
     initFAB();
     
@@ -398,48 +437,67 @@ document.addEventListener('DOMContentLoaded', () => {
     initCarousels();
     
     // Mobile sticky header fallback
-const header = document.querySelector('header');
-if (header && window.innerWidth <= 680) {
-    let lastScrollTop = 0;
-    let isSticky = false;
-    
-    window.addEventListener('scroll', () => {
-        const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+    function initStickyHeader() {
+        const header = document.querySelector('header');
+        if (!header) return;
         
-        if (scrollTop > 10 && !isSticky) {
-            header.style.position = 'fixed';
-            header.style.top = '0';
-            header.style.left = '0';
-            header.style.right = '0';
-            header.style.zIndex = '50';
-            header.style.width = '100%';
-            header.style.background = 'rgba(11,11,12,0.95)';
-            header.style.backdropFilter = 'saturate(140%) blur(8px)';
-            header.style.webkitBackdropFilter = 'saturate(140%) blur(8px)';
-            header.style.borderBottom = '1px solid var(--border)';
-            isSticky = true;
-        } else if (scrollTop <= 10 && isSticky) {
-            header.style.position = 'sticky';
-            header.style.background = '';
-            header.style.backdropFilter = '';
-            header.style.webkitBackdropFilter = '';
-            isSticky = false;
+        // Remove existing listeners to prevent duplicates
+        if (window.stickyHeaderHandler) {
+            window.removeEventListener('scroll', window.stickyHeaderHandler);
         }
         
-        lastScrollTop = scrollTop;
-    });
+        let isSticky = false;
+        
+        window.stickyHeaderHandler = () => {
+            const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            
+            if (scrollTop > 10 && !isSticky) {
+                header.style.position = 'fixed';
+                header.style.top = '0';
+                header.style.left = '0';
+                header.style.right = '0';
+                header.style.zIndex = '50';
+                header.style.width = '100%';
+                header.style.background = 'rgba(11,11,12,0.95)';
+                header.style.backdropFilter = 'saturate(140%) blur(8px)';
+                header.style.webkitBackdropFilter = 'saturate(140%) blur(8px)';
+                header.style.borderBottom = '1px solid var(--border)';
+                isSticky = true;
+            } else if (scrollTop <= 10 && isSticky) {
+                header.style.position = 'sticky';
+                header.style.background = '';
+                header.style.backdropFilter = '';
+                header.style.webkitBackdropFilter = '';
+                isSticky = false;
+            }
+        };
+        
+        window.addEventListener('scroll', window.stickyHeaderHandler);
+        
+        // Also handle resize events
+        window.addEventListener('resize', () => {
+            if (window.innerWidth > 680) {
+                header.style.position = 'sticky';
+                header.style.background = '';
+                header.style.backdropFilter = '';
+                header.style.webkitBackdropFilter = '';
+                isSticky = false;
+            }
+        });
+        
+        // Initial check
+        window.stickyHeaderHandler();
+    }
     
-    // Also handle resize events
-    window.addEventListener('resize', () => {
-        if (window.innerWidth > 680) {
-            header.style.position = 'sticky';
-            header.style.background = '';
-            header.style.backdropFilter = '';
-            header.style.webkitBackdropFilter = '';
-            isSticky = false;
+    // Initialize sticky header
+    initStickyHeader();
+    
+    // Re-initialize on page visibility change (for back/forward navigation)
+    document.addEventListener('visibilitychange', () => {
+        if (!document.hidden) {
+            setTimeout(initStickyHeader, 100);
         }
     });
-}
     
     // Set current year in footer
     document.getElementById('year').textContent = new Date().getFullYear();
