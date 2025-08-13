@@ -189,6 +189,164 @@ function initFAB() {
     });
 }
 
+// Carousel functionality
+function initCarousels() {
+    document.querySelectorAll('.carousel').forEach(carousel => {
+        const srcs = carousel.dataset.srcs;
+        const alt = carousel.dataset.alt || 'Carousel image';
+        
+        if (!srcs) return;
+        
+        const images = srcs.split(',');
+        if (images.length === 0) return;
+        
+        // Create carousel structure
+        carousel.innerHTML = `
+            <div class="carousel__viewport">
+                <div class="carousel__track">
+                    ${images.map((src, index) => `
+                        <div class="carousel__slide">
+                            <img src="${src.trim()}" alt="${alt} ${index + 1}" loading="lazy">
+                        </div>
+                    `).join('')}
+                </div>
+            </div>
+            ${images.length > 1 ? `
+                <button class="carousel__btn prev" aria-label="Предыдущее изображение">‹</button>
+                <button class="carousel__btn next" aria-label="Следующее изображение">›</button>
+                <div class="carousel__dots">
+                    ${images.map((_, index) => `
+                        <button class="carousel__dot ${index === 0 ? 'is-active' : ''}" 
+                                data-slide="${index}" 
+                                aria-label="Перейти к изображению ${index + 1}"></button>
+                    `).join('')}
+                </div>
+            ` : ''}
+        `;
+        
+        if (images.length <= 1) return;
+        
+        // Carousel functionality
+        const track = carousel.querySelector('.carousel__track');
+        const slides = carousel.querySelectorAll('.carousel__slide');
+        const dots = carousel.querySelectorAll('.carousel__dot');
+        const prevBtn = carousel.querySelector('.carousel__btn.prev');
+        const nextBtn = carousel.querySelector('.carousel__btn.next');
+        
+        let currentSlide = 0;
+        let isDragging = false;
+        let startPos = 0;
+        let currentTranslate = 0;
+        let prevTranslate = 0;
+        
+        function updateCarousel() {
+            const slideWidth = slides[0].offsetWidth;
+            track.style.transform = `translateX(-${currentSlide * slideWidth}px)`;
+            
+            // Update dots
+            dots.forEach((dot, index) => {
+                dot.classList.toggle('is-active', index === currentSlide);
+            });
+        }
+        
+        function goToSlide(index) {
+            currentSlide = Math.max(0, Math.min(index, slides.length - 1));
+            updateCarousel();
+        }
+        
+        function nextSlide() {
+            goToSlide(currentSlide + 1);
+        }
+        
+        function prevSlide() {
+            goToSlide(currentSlide - 1);
+        }
+        
+        // Event listeners
+        if (prevBtn) prevBtn.addEventListener('click', prevSlide);
+        if (nextBtn) nextBtn.addEventListener('click', nextSlide);
+        
+        dots.forEach((dot, index) => {
+            dot.addEventListener('click', () => goToSlide(index));
+        });
+        
+        // Touch/swipe support
+        function touchStart(e) {
+            isDragging = true;
+            startPos = e.type === 'mousedown' ? e.clientX : e.touches[0].clientX;
+            carousel.classList.add('drag');
+        }
+        
+        function touchMove(e) {
+            if (!isDragging) return;
+            e.preventDefault();
+            const currentPos = e.type === 'mousemove' ? e.clientX : e.touches[0].clientX;
+            const diff = currentPos - startPos;
+            const slideWidth = slides[0].offsetWidth;
+            currentTranslate = prevTranslate + diff;
+            
+            track.style.transform = `translateX(${currentTranslate}px)`;
+        }
+        
+        function touchEnd() {
+            if (!isDragging) return;
+            isDragging = false;
+            carousel.classList.remove('drag');
+            
+            const slideWidth = slides[0].offsetWidth;
+            const movedBy = currentTranslate - prevTranslate;
+            
+            if (Math.abs(movedBy) > slideWidth / 3) {
+                if (movedBy < 0) {
+                    nextSlide();
+                } else {
+                    prevSlide();
+                }
+            } else {
+                updateCarousel();
+            }
+            
+            prevTranslate = currentTranslate;
+        }
+        
+        // Mouse events
+        track.addEventListener('mousedown', touchStart);
+        track.addEventListener('mousemove', touchMove);
+        track.addEventListener('mouseup', touchEnd);
+        track.addEventListener('mouseleave', touchEnd);
+        
+        // Touch events
+        track.addEventListener('touchstart', touchStart);
+        track.addEventListener('touchmove', touchMove);
+        track.addEventListener('touchend', touchEnd);
+        
+        // Keyboard navigation
+        carousel.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowLeft') {
+                prevSlide();
+            } else if (e.key === 'ArrowRight') {
+                nextSlide();
+            }
+        });
+        
+        // Auto-play (optional)
+        let autoPlayInterval;
+        function startAutoPlay() {
+            autoPlayInterval = setInterval(nextSlide, 5000);
+        }
+        
+        function stopAutoPlay() {
+            clearInterval(autoPlayInterval);
+        }
+        
+        carousel.addEventListener('mouseenter', stopAutoPlay);
+        carousel.addEventListener('mouseleave', startAutoPlay);
+        
+        // Start auto-play
+        startAutoPlay();
+    });
+}
+
 // Initialize everything when DOM is loaded
 document.addEventListener('DOMContentLoaded', () => {
     // Initialize mobile menu
@@ -232,6 +390,9 @@ document.addEventListener('DOMContentLoaded', () => {
     
     // Initialize FAB
     initFAB();
+    
+    // Initialize carousels
+    initCarousels();
     
     // Set current year in footer
     document.getElementById('year').textContent = new Date().getFullYear();
