@@ -191,14 +191,28 @@ function initFAB() {
 
 // Carousel functionality
 function initCarousels() {
-    document.querySelectorAll('.carousel').forEach(carousel => {
+    console.log('Initializing carousels...');
+    const carousels = document.querySelectorAll('.carousel');
+    console.log('Found carousels:', carousels.length);
+    
+    carousels.forEach((carousel, index) => {
         const srcs = carousel.dataset.srcs;
         const alt = carousel.dataset.alt || 'Carousel image';
         
-        if (!srcs) return;
+        console.log(`Carousel ${index}:`, { srcs, alt });
         
-        const images = srcs.split(',');
-        if (images.length === 0) return;
+        if (!srcs) {
+            console.log(`Carousel ${index}: No srcs data`);
+            return;
+        }
+        
+        const images = srcs.split(',').map(src => src.trim());
+        console.log(`Carousel ${index}: Images:`, images);
+        
+        if (images.length === 0) {
+            console.log(`Carousel ${index}: No images`);
+            return;
+        }
         
         // Create carousel structure
         carousel.innerHTML = `
@@ -344,7 +358,11 @@ function initCarousels() {
         
         // Start auto-play
         startAutoPlay();
+        
+        console.log(`Carousel ${index}: Initialized successfully`);
     });
+    
+    console.log('All carousels initialized');
 }
 
 // Initialize everything when DOM is loaded
