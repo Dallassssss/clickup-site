@@ -46,7 +46,8 @@ class TelegramFormHandler {
 📧 *Email:* ${data.email || 'Не указан'}
 📱 *Способ связи:* ${this.escapeMarkdown(data.preferred)}
 ⏰ *Время для связи:* ${data.time || 'Не указано'}
-🔗 *Сайт/телефон:* ${this.escapeMarkdown(data.link || 'Не указана')}
+🔗 *Ссылка для связи:* ${this.escapeMarkdown(data.link || 'Не указана')}
+🌐 *Ссылка на проект:* ${this.escapeMarkdown(data.project || 'Не указана')}
 💬 *Комментарий:* ${this.escapeMarkdown(data.comment || 'Не указан')}
 
 📅 ${timestamp}
