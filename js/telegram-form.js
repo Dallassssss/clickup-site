@@ -10,6 +10,7 @@ class FormHandler {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
+                    'X-API-Key': 'optional-api-key-here', // Опционально для дополнительной защиты
                 },
                 body: JSON.stringify(data)
             });
