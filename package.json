@@ -1,0 +1,9 @@
+{
+  "name": "clickup-by-site",
+  "private": true,
+  "version": "1.0.0",
+  "scripts": {
+    "sitemap": "node tools/generate-sitemap.js public_html https://clickup.by"
+  }
+}
+
