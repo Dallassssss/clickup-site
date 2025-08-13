@@ -300,6 +300,13 @@ h1 {
     flex-wrap: wrap;
 }
 
+.hero__stats {
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap: 12px;
+    margin-top: 20px;
+}
+
 .price {
     margin-top: 12px;
     font-weight: 600;
@@ -892,6 +899,10 @@ body.no-scroll {
     .grid--3,
     .stats {
         grid-template-columns: 1fr;
+    }
+    .hero__stats {
+        grid-template-columns: 1fr;
+        gap: 8px;
     }
     .testis {
         grid-template-columns: 1fr;
