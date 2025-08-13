@@ -461,6 +461,21 @@ body.no-scroll{overflow:hidden}
       vp.addEventListener('pointerdown',onDown); window.addEventListener('pointermove',onMove); window.addEventListener('pointerup',onUp);
       vp.addEventListener('touchstart',onDown,{passive:true}); window.addEventListener('touchmove',onMove,{passive:true}); window.addEventListener('touchend',onUp);
       set(0);
+      // Auto-play with 5s delay (configurable via data-delay)
+      const delay=Number(root.dataset.delay)||5000;
+      let timer=null;
+      const stopAuto=()=>{ if(timer){ clearInterval(timer); timer=null; } };
+      const startAuto=()=>{ if(n<2) return; stopAuto(); timer=setInterval(()=>{ if(!drag) set(i+1); }, delay); };
+      // Pause on user interaction/hover and on tab hidden; resume after
+      prev.onclick=()=>{ set(i-1); startAuto(); };
+      next.onclick=()=>{ set(i+1); startAuto(); };
+      for(const d of dots.children){ d.onclick=((e)=>{ const idx=[...dots.children].indexOf(e.currentTarget); set(idx); startAuto(); }); }
+      vp.addEventListener('mouseenter', stopAuto);
+      vp.addEventListener('mouseleave', startAuto);
+      vp.addEventListener('pointerdown', stopAuto);
+      window.addEventListener('pointerup', startAuto);
+      document.addEventListener('visibilitychange', ()=>{ if(document.hidden) stopAuto(); else startAuto(); });
+      startAuto();
     }
 
     document.addEventListener('DOMContentLoaded',()=>{
