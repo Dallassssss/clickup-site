@@ -523,6 +523,10 @@ h2 {
     gap: 10px;
 }
 
+.case .btn {
+    margin-top: 12px;
+}
+
 .case__tags {
     display: flex;
     flex-wrap: wrap;
