@@ -806,7 +806,7 @@ body.no-scroll {
     transform: rotate(45deg);
 }
 
-#faq details>p {
+#faq details>div {
     margin: 0;
     padding: 0 16px 14px 16px;
     color: var(--muted);
@@ -819,10 +819,31 @@ body.no-scroll {
     white-space: normal;
 }
 
-#faq details[open]>p {
-    max-height: none;
-    opacity: 1;
-    transform: none;
+#faq details[open]>div {
+    max-height: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+    overflow: visible !important;
+    height: auto !important;
+}
+
+#faq details[open] * {
+    overflow: visible !important;
+    max-height: none !important;
+    height: auto !important;
+}
+
+#faq details[open] div {
+    overflow: visible !important;
+    max-height: none !important;
+    height: auto !important;
+}
+
+#faq details[open] p {
+    overflow: visible !important;
+    max-height: none !important;
+    height: auto !important;
+    margin: 0 !important;
 }
 
 /* Responsive */
