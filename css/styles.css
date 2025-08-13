@@ -130,10 +130,14 @@ img {
 header {
     position: sticky;
     top: 0;
+    left: 0;
+    right: 0;
     z-index: 50;
-    background: rgba(11,11,12,.7);
+    background: rgba(11,11,12,.95);
     border-bottom: 1px solid var(--border);
     backdrop-filter: saturate(140%) blur(8px);
+    -webkit-backdrop-filter: saturate(140%) blur(8px);
+    will-change: transform;
 }
 
 .nav {
@@ -142,6 +146,7 @@ header {
     justify-content: space-between;
     gap: 12px;
     height: 64px;
+    position: relative;
 }
 
 .logo {
@@ -171,6 +176,7 @@ header {
 .nav__cta {
     display: flex;
     gap: 10px;
+    align-items: center;
 }
 
 /* hide burger on desktop */
@@ -190,11 +196,14 @@ header {
     background: rgba(11,11,12,.98);
     border-top: 1px solid var(--border);
     border-bottom: 1px solid var(--border);
+    position: relative;
+    z-index: 49;
 }
 
 #mobileMenu a {
     padding: 14px 16px;
     border-bottom: 1px solid var(--border);
+    padding-left: 16px;
 }
 
 @media (min-width: 681px) {
@@ -837,14 +846,17 @@ body.no-scroll {
         display: none;
     }
     .burger {
-        display: inline-flex;
+        display: inline-flex !important;
         min-width: 60px;
         height: 40px;
         padding: 8px 12px;
         font-size: 14px;
         white-space: nowrap;
-        overflow: hidden;
-        text-overflow: ellipsis;
+        overflow: visible;
+        text-overflow: clip;
+        box-sizing: border-box;
+        margin: 0;
+        flex-shrink: 0;
     }
     .grid--2,
     .grid--3,
@@ -935,6 +947,8 @@ body.no-scroll {
         min-width: 50px;
         padding: 6px 8px;
         font-size: 12px;
+        overflow: visible;
+        text-overflow: clip;
     }
     h1 {
         font-size: 26px;
