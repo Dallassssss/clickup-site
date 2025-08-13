@@ -44,15 +44,15 @@
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
-        "@type": "LocalBusiness",
+        "@type": "ProfessionalService",
         "name": "ClickUp.by",
         "alternateName": "ClickUp",
         "description": "Агентство контекстной и таргетированной рекламы под ключ. Стратегия, запуск, оптимизация и прозрачная отчётность. Работаем по KPI и бизнес-целям.",
         "url": "https://clickup.by",
         "logo": "https://clickup.by/icon.svg",
         "image": "https://clickup.by/og-image.jpg",
-        "telephone": "+375-XX-XXX-XXXX",
-        "email": "info@clickup.by",
+        "telephone": "+375259325405",
+        "email": "hello@clickup.by",
         "address": {
             "@type": "PostalAddress",
             "addressLocality": "Минск",
@@ -765,9 +765,12 @@
         "url": "https://clickup.by/",
         "name": "ClickUp.by",
         "potentialAction": {
-            "@type": "ContactAction",
-            "target": "https://clickup.by/#contact",
-            "name": "Оставить заявку"
+            "@type": "SearchAction",
+            "target": {
+                "@type": "EntryPoint",
+                "urlTemplate": "https://clickup.by/#contact"
+            },
+            "query-input": "required name=contact"
         }
     }
     </script>
@@ -865,60 +868,7 @@
     }
     </script>
     
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "ProfessionalService",
-        "name": "ClickUp.by",
-        "url": "https://clickup.by/",
-        "telephone": "+375259325405",
-        "sameAs": ["https://t.me/mmopixcom"],
-        "logo": "https://clickup.by/icon.svg",
-        "areaServed": "BY",
-        "hasOfferCatalog": {
-            "@type": "OfferCatalog",
-            "name": "Услуги рекламного агентства",
-            "itemListElement": [
-                {
-                    "@type": "Offer",
-                    "itemOffered": {
-                        "@type": "Service",
-                        "name": "Контекстная реклама",
-                        "serviceType": "Yandex Direct",
-                        "audience": {
-                            "@type": "Audience",
-                            "audienceType": "B2C/B2B"
-                        }
-                    },
-                    "priceSpecification": {
-                        "@type": "PriceSpecification",
-                        "price": "20000",
-                        "priceCurrency": "RUB",
-                        "unitText": "в месяц"
-                    }
-                },
-                {
-                    "@type": "Offer",
-                    "itemOffered": {
-                        "@type": "Service",
-                        "name": "Таргетированная реклама",
-                        "serviceType": "VK Ads / myTarget",
-                        "audience": {
-                            "@type": "Audience",
-                            "audienceType": "B2C/B2B"
-                        }
-                    },
-                    "priceSpecification": {
-                        "@type": "PriceSpecification",
-                        "price": "20000",
-                        "priceCurrency": "RUB",
-                        "unitText": "в месяц"
-                    }
-                }
-            ]
-        }
-    }
-    </script>
+
     
     <script type="application/ld+json">
     {
@@ -932,6 +882,23 @@
                 "item": "https://clickup.by/"
             }
         ]
+    }
+    </script>
+    
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "ContactPage",
+        "url": "https://clickup.by/#contact",
+        "name": "Контактная форма",
+        "description": "Форма для связи с рекламным агентством ClickUp.by",
+        "mainEntity": {
+            "@type": "ContactPoint",
+            "contactType": "customer service",
+            "telephone": "+375259325405",
+            "email": "hello@clickup.by",
+            "availableLanguage": "Russian"
+        }
     }
     </script>
 </body>
