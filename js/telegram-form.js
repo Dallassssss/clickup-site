@@ -1,62 +1,53 @@
-// Telegram Form Handler (JavaScript альтернатива)
-class TelegramFormHandler {
-    constructor(botToken, chatId) {
-        this.botToken = botToken;
-        this.chatId = chatId;
-        this.apiUrl = `https://api.telegram.org/bot${botToken}/sendMessage`;
+// Form Handler для отправки через API
+class FormHandler {
+    constructor(apiUrl) {
+        this.apiUrl = apiUrl || '/api/lead.php';
     }
 
-    async sendMessage(data) {
-        const message = this.formatMessage(data);
-        
+    async sendForm(data) {
         try {
             const response = await fetch(this.apiUrl, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
                 },
-                body: JSON.stringify({
-                    chat_id: this.chatId,
-                    text: message,
-                    parse_mode: 'Markdown',
-                    disable_web_page_preview: true
-                })
+                body: JSON.stringify(data)
             });
 
             const result = await response.json();
             
-            if (result.ok) {
-                return { success: true, message: 'Заявка отправлена' };
+            if (response.ok && result.success) {
+                return { success: true, message: result.message || 'Заявка отправлена' };
             } else {
-                throw new Error(result.description || 'Ошибка отправки');
+                throw new Error(result.error || result.message || 'Ошибка отправки');
             }
         } catch (error) {
-            console.error('Telegram API Error:', error);
+            console.error('Form submission error:', error);
             throw error;
         }
     }
 
-    formatMessage(data) {
-        const timestamp = new Date().toLocaleString('ru-RU');
-        const referrer = document.referrer || 'Прямой переход';
+    validateForm(data) {
+        const errors = [];
         
-        return `🎯 *Новая заявка с сайта*
-
-👤 *Имя:* ${this.escapeMarkdown(data.name)}
-📧 *Email:* ${data.email || 'Не указан'}
-📱 *Способ связи:* ${this.escapeMarkdown(data.preferred)}
-⏰ *Время для связи:* ${data.time || 'Не указано'}
-🔗 *Ссылка для связи:* ${this.escapeMarkdown(data.link || 'Не указана')}
-🌐 *Ссылка на проект:* ${this.escapeMarkdown(data.project || 'Не указана')}
-💬 *Комментарий:* ${this.escapeMarkdown(data.comment || 'Не указан')}
-
-📅 ${timestamp}
-🌐 ${referrer}`;
+        if (!data.name || data.name.trim().length < 2) {
+            errors.push('Имя должно содержать минимум 2 символа');
+        }
+        
+        if (!data.preferred) {
+            errors.push('Выберите способ связи');
+        }
+        
+        if (data.email && !this.isValidEmail(data.email)) {
+            errors.push('Некорректный email');
+        }
+        
+        return errors;
     }
 
-    escapeMarkdown(text) {
-        if (!text) return '';
-        return text.replace(/[_*[\]()~`>#+=|{}.!-]/g, '\\$&');
+    isValidEmail(email) {
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        return emailRegex.test(email);
     }
 }
 
@@ -67,11 +58,7 @@ document.addEventListener('DOMContentLoaded', function() {
     
     if (!form || !statusEl) return;
 
-                    // Настройки бота
-                const BOT_TOKEN = '8200269768:AAFdb6170gTy50TSpXTWZEG_CanwU7ZgLOc';
-                const CHAT_ID = '735765614';
-    
-    const telegramHandler = new TelegramFormHandler(BOT_TOKEN, CHAT_ID);
+    const formHandler = new FormHandler();
 
     form.addEventListener('submit', async function(e) {
         e.preventDefault();
@@ -83,28 +70,46 @@ document.addEventListener('DOMContentLoaded', function() {
             return;
         }
 
+        // Получаем данные формы
+        const formData = new FormData(form);
+        const data = Object.fromEntries(formData.entries());
+        
+        // Удаляем honeypot поле
+        delete data.hp;
+        
+        // Валидируем данные
+        const errors = formHandler.validateForm(data);
+        if (errors.length > 0) {
+            statusEl.textContent = errors.join(', ');
+            return;
+        }
+
+        // Показываем статус отправки
         statusEl.textContent = 'Отправляем…';
+        statusEl.style.color = '#c9c9c9';
         
         try {
-            const formData = new FormData(form);
-            const data = Object.fromEntries(formData.entries());
+            const result = await formHandler.sendForm(data);
             
-            // Удаляем honeypot поле
-            delete data.hp;
-            
-            const result = await telegramHandler.sendMessage(data);
-            
-            statusEl.textContent = 'Спасибо! Мы свяжемся с вами в ближайшее время.';
+            statusEl.textContent = result.message;
+            statusEl.style.color = '#4ade80';
             form.reset();
+            
+            // Скрываем сообщение через 5 секунд
+            setTimeout(() => {
+                statusEl.textContent = '';
+                statusEl.style.color = '#c9c9c9';
+            }, 5000);
             
         } catch (error) {
             console.error('Form submission error:', error);
             statusEl.textContent = 'Не удалось отправить. Напишите в Telegram: @mmopixcom';
+            statusEl.style.color = '#f87171';
         }
     });
 });
 
 // Экспорт для использования в других файлах
 if (typeof module !== 'undefined' && module.exports) {
-    module.exports = TelegramFormHandler;
+    module.exports = FormHandler;
 }
