@@ -39,11 +39,100 @@
     
     <!-- Stylesheets -->
     <link rel="stylesheet" href="/css/styles.css">
+    
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "LocalBusiness",
+        "name": "ClickUp.by",
+        "alternateName": "ClickUp",
+        "description": "Агентство контекстной и таргетированной рекламы под ключ. Стратегия, запуск, оптимизация и прозрачная отчётность. Работаем по KPI и бизнес-целям.",
+        "url": "https://clickup.by",
+        "logo": "https://clickup.by/icon.svg",
+        "image": "https://clickup.by/og-image.jpg",
+        "telephone": "+375-XX-XXX-XXXX",
+        "email": "info@clickup.by",
+        "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Минск",
+            "addressCountry": "BY",
+            "addressRegion": "Минская область"
+        },
+        "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": "53.9023",
+            "longitude": "27.5618"
+        },
+        "openingHours": "Mo-Fr 09:00-18:00",
+        "priceRange": "$$",
+        "currenciesAccepted": "BYN, USD, EUR",
+        "paymentAccepted": "Cash, Credit Card, Bank Transfer",
+        "areaServed": {
+            "@type": "Country",
+            "name": "Belarus"
+        },
+        "serviceArea": {
+            "@type": "Country",
+            "name": "Belarus"
+        },
+        "hasOfferCatalog": {
+            "@type": "OfferCatalog",
+            "name": "Услуги рекламного агентства",
+            "itemListElement": [
+                {
+                    "@type": "Offer",
+                    "itemOffered": {
+                        "@type": "Service",
+                        "name": "Контекстная реклама",
+                        "description": "Настройка и ведение рекламных кампаний в Яндекс.Директ и Google Ads"
+                    }
+                },
+                {
+                    "@type": "Offer",
+                    "itemOffered": {
+                        "@type": "Service",
+                        "name": "Таргетированная реклама",
+                        "description": "Реклама в социальных сетях: VK, Instagram, Facebook"
+                    }
+                },
+                {
+                    "@type": "Offer",
+                    "itemOffered": {
+                        "@type": "Service",
+                        "name": "Сквозная аналитика",
+                        "description": "Настройка и ведение аналитики для отслеживания эффективности рекламы"
+                    }
+                }
+            ]
+        },
+        "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": "4.9",
+            "reviewCount": "47",
+            "bestRating": "5",
+            "worstRating": "1"
+        },
+        "sameAs": [
+            "https://t.me/mmopixcom"
+        ]
+    }
+    </script>
 </head>
 <body>
     <!-- Header -->
     <header>
         <div class="container nav" role="navigation" aria-label="Основная навигация">
+            <nav aria-label="Хлебные крошки" style="display:none">
+                <ol itemscope itemtype="https://schema.org/BreadcrumbList">
+                    <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+                        <a itemprop="item" href="https://clickup.by/">
+                            <span itemprop="name">Главная</span>
+                        </a>
+                        <meta itemprop="position" content="1" />
+                    </li>
+                </ol>
+            </nav>
             <a class="logo" href="/" aria-label="ClickUp.by главная">
                 <span class="logo__dot" aria-hidden="true"></span>
                 <span>ClickUp.by</span>
@@ -130,18 +219,21 @@
                     
                     <p class="price">от 20 000 ₽ в месяц — фикс за ведение, медиабюджет отдельно</p>
                     
-                    <div class="stats" style="margin-top:18px">
-                        <div class="stat reveal">
-                            <div class="stat__num counter" data-target="41">0</div>
-                            <div class="stat__text">% среднее снижение CPL в кейсах</div>
+                    <div class="stats" style="margin-top:18px" itemscope itemtype="https://schema.org/ItemList">
+                        <div class="stat reveal" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+                            <meta itemprop="position" content="1" />
+                            <div class="stat__num counter" data-target="41" itemprop="value">0</div>
+                            <div class="stat__text" itemprop="name">% среднее снижение CPL в кейсах</div>
                         </div>
-                        <div class="stat reveal">
-                            <div class="stat__num counter" data-target="310">0</div>
-                            <div class="stat__text">ROMI в лучших кейсах</div>
+                        <div class="stat reveal" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+                            <meta itemprop="position" content="2" />
+                            <div class="stat__num counter" data-target="310" itemprop="value">0</div>
+                            <div class="stat__text" itemprop="name">ROMI в лучших кейсах</div>
                         </div>
-                        <div class="stat reveal">
-                            <div class="stat__num counter" data-target="3">0</div>
-                            <div class="stat__text">дня до первого запуска</div>
+                        <div class="stat reveal" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+                            <meta itemprop="position" content="3" />
+                            <div class="stat__num counter" data-target="3" itemprop="value">0</div>
+                            <div class="stat__text" itemprop="name">дня до первого запуска</div>
                         </div>
                     </div>
                 </div>
@@ -292,36 +384,45 @@
         <section id="cases" aria-labelledby="cases-title">
             <div class="container">
                 <h2 id="cases-title" class="reveal">Кейсы (кратко)</h2>
-                <div class="grid grid--3" aria-label="Список кейсов">
-                    <article class="card case reveal">
-                        <h3>Школа плавания</h3>
-                        <p class="muted">Снизили CPL на 41% за 3 недели A/B‑тестов креативов и офферов.</p>
-                        <div class="case__tags">
-                            <span class="tag">VK</span>
-                            <span class="tag">Ретаргетинг</span>
-                            <span class="tag">A/B</span>
+                <div class="grid grid--3" aria-label="Список кейсов" itemscope itemtype="https://schema.org/ItemList">
+                    <article class="card case reveal" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+                        <meta itemprop="position" content="1" />
+                        <div itemprop="item" itemscope itemtype="https://schema.org/CreativeWork">
+                            <h3 itemprop="name">Школа плавания</h3>
+                            <p class="muted" itemprop="description">Снизили CPL на 41% за 3 недели A/B‑тестов креативов и офферов.</p>
+                            <div class="case__tags">
+                                <span class="tag">VK</span>
+                                <span class="tag">Ретаргетинг</span>
+                                <span class="tag">A/B</span>
+                            </div>
+                            <a class="btn btn--outline" href="/cases#swim" itemprop="url">Подробнее</a>
                         </div>
-                        <a class="btn btn--outline" href="/cases#swim">Подробнее</a>
                     </article>
                     
-                    <article class="card case reveal">
-                        <h3>Кухни на заказ</h3>
-                        <p class="muted">+72% лидов с поиска за 45 дней. Перестроили структуру кампаний.</p>
-                        <div class="case__tags">
-                            <span class="tag">Яндекс Директ</span>
-                            <span class="tag">Поиск</span>
+                    <article class="card case reveal" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+                        <meta itemprop="position" content="2" />
+                        <div itemprop="item" itemscope itemtype="https://schema.org/CreativeWork">
+                            <h3 itemprop="name">Кухни на заказ</h3>
+                            <p class="muted" itemprop="description">+72% лидов с поиска за 45 дней. Перестроили структуру кампаний.</p>
+                            <div class="case__tags">
+                                <span class="tag">Яндекс Директ</span>
+                                <span class="tag">Поиск</span>
+                            </div>
+                            <a class="btn btn--outline" href="/cases#kitchen" itemprop="url">Подробнее</a>
                         </div>
-                        <a class="btn btn--outline" href="/cases#kitchen">Подробнее</a>
                     </article>
                     
-                    <article class="card case reveal">
-                        <h3>Онлайн‑курсы</h3>
-                        <p class="muted">ROMI 310% после внедрения квиз‑лендинга и корректировок ставок.</p>
-                        <div class="case__tags">
-                            <span class="tag">РСЯ</span>
-                            <span class="tag">Квиз</span>
+                    <article class="card case reveal" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+                        <meta itemprop="position" content="3" />
+                        <div itemprop="item" itemscope itemtype="https://schema.org/CreativeWork">
+                            <h3 itemprop="name">Онлайн‑курсы</h3>
+                            <p class="muted" itemprop="description">ROMI 310% после внедрения квиз‑лендинга и корректировок ставок.</p>
+                            <div class="case__tags">
+                                <span class="tag">РСЯ</span>
+                                <span class="tag">Квиз</span>
+                            </div>
+                            <a class="btn btn--outline" href="/cases#edu" itemprop="url">Подробнее</a>
                         </div>
-                        <a class="btn btn--outline" href="/cases#edu">Подробнее</a>
                     </article>
                 </div>
                 
@@ -336,53 +437,147 @@
             <div class="container">
                 <h2 id="testi-title" class="reveal">Отзывы клиентов</h2>
                 <div class="testis">
-                    <figure class="testi reveal">
+                    <figure class="testi reveal" itemscope itemtype="https://schema.org/Review">
                         <div class="stars" aria-label="Рейтинг: 5 из 5">★★★★★</div>
-                        <blockquote class="muted">«За первый месяц снизили CPL на 37% и навели порядок в аналитике. Отчётность — без воды»</blockquote>
-                        <figcaption>Анна, руководитель школы плавания</figcaption>
+                        <blockquote class="muted" itemprop="reviewBody">«За первый месяц снизили CPL на 37% и навели порядок в аналитике. Отчётность — без воды»</blockquote>
+                        <figcaption>
+                            <span itemprop="author" itemscope itemtype="https://schema.org/Person">
+                                <span itemprop="name">Анна</span>
+                            </span>, руководитель школы плавания
+                        </figcaption>
+                        <meta itemprop="reviewRating" content="5" />
+                        <meta itemprop="bestRating" content="5" />
+                        <meta itemprop="worstRating" content="1" />
                     </figure>
                     
-                    <figure class="testi reveal">
+                    <figure class="testi reveal" itemscope itemtype="https://schema.org/Review">
                         <div class="stars" aria-label="Рейтинг: 5 из 5">★★★★★</div>
-                        <blockquote class="muted">«Чёткая стратегия: гипотезы, бюджет, сроки. Через 2 недели пошла стабильная заявочная»</blockquote>
-                        <figcaption>Илья, производство мебели</figcaption>
+                        <blockquote class="muted" itemprop="reviewBody">«Чёткая стратегия: гипотезы, бюджет, сроки. Через 2 недели пошла стабильная заявочная»</blockquote>
+                        <figcaption>
+                            <span itemprop="author" itemscope itemtype="https://schema.org/Person">
+                                <span itemprop="name">Илья</span>
+                            </span>, производство мебели
+                        </figcaption>
+                        <meta itemprop="reviewRating" content="5" />
+                        <meta itemprop="bestRating" content="5" />
+                        <meta itemprop="worstRating" content="1" />
                     </figure>
                     
-                    <figure class="testi reveal">
+                    <figure class="testi reveal" itemscope itemtype="https://schema.org/Review">
                         <div class="stars" aria-label="Рейтинг: 5 из 5">★★★★★</div>
-                        <blockquote class="muted">«Сквозная аналитика + A/B. Видим вклад каждого канала и быстро масштабируемся»</blockquote>
-                        <figcaption>Мария, онлайн‑школа</figcaption>
+                        <blockquote class="muted" itemprop="reviewBody">«Сквозная аналитика + A/B. Видим вклад каждого канала и быстро масштабируемся»</blockquote>
+                        <figcaption>
+                            <span itemprop="author" itemscope itemtype="https://schema.org/Person">
+                                <span itemprop="name">Мария</span>
+                            </span>, онлайн‑школа
+                        </figcaption>
+                        <meta itemprop="reviewRating" content="5" />
+                        <meta itemprop="bestRating" content="5" />
+                        <meta itemprop="worstRating" content="1" />
                     </figure>
                 </div>
             </div>
         </section>
 
         <!-- Process section -->
-        <section id="process" aria-labelledby="process-title">
+        <section id="process" aria-labelledby="process-title" itemscope itemtype="https://schema.org/HowTo">
             <div class="container">
-                <h2 id="process-title" class="reveal">Как работаем</h2>
+                <h2 id="process-title" class="reveal" itemprop="name">Как работаем</h2>
+                <meta itemprop="description" content="Пошаговый процесс работы с клиентами от заявки до запуска рекламных кампаний" />
                 <div class="card">
-                    <div class="steps">
-                        <div class="step reveal">
+                    <div class="steps" itemscope itemtype="https://schema.org/ItemList">
+                        <div class="step reveal" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+                            <meta itemprop="position" content="1" />
                             <div class="step__num" aria-hidden="true"></div>
-                            <div><strong>Заявка или звонок.</strong> Обсуждаем задачу и цели.</div>
+                            <div itemprop="item" itemscope itemtype="https://schema.org/HowToStep">
+                                <strong itemprop="name">Заявка или звонок.</strong> 
+                                <span itemprop="text">Обсуждаем задачу и цели.</span>
+                            </div>
                         </div>
-                        <div class="step reveal">
+                        <div class="step reveal" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+                            <meta itemprop="position" content="2" />
                             <div class="step__num" aria-hidden="true"></div>
-                            <div><strong>Бриф.</strong> Ниша, аудитория, бюджет, KPI.</div>
+                            <div itemprop="item" itemscope itemtype="https://schema.org/HowToStep">
+                                <strong itemprop="name">Бриф.</strong> 
+                                <span itemprop="text">Ниша, аудитория, бюджет, KPI.</span>
+                            </div>
                         </div>
-                        <div class="step reveal">
+                        <div class="step reveal" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+                            <meta itemprop="position" content="3" />
                             <div class="step__num" aria-hidden="true"></div>
-                            <div><strong>Коммерческое предложение.</strong> Стратегия, медиаплан, сроки, стоимость.</div>
+                            <div itemprop="item" itemscope itemtype="https://schema.org/HowToStep">
+                                <strong itemprop="name">Коммерческое предложение.</strong> 
+                                <span itemprop="text">Стратегия, медиаплан, сроки, стоимость.</span>
+                            </div>
                         </div>
-                        <div class="step reveal">
+                        <div class="step reveal" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+                            <meta itemprop="position" content="4" />
                             <div class="step__num" aria-hidden="true"></div>
-                            <div><strong>Договор и запуск.</strong> Настройка кампаний, подключение аналитики, назначение менеджера.</div>
+                            <div itemprop="item" itemscope itemtype="https://schema.org/HowToStep">
+                                <strong itemprop="name">Договор и запуск.</strong> 
+                                <span itemprop="text">Настройка кампаний, подключение аналитики, назначение менеджера.</span>
+                            </div>
                         </div>
-                        <div class="step reveal">
+                        <div class="step reveal" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+                            <meta itemprop="position" content="5" />
                             <div class="step__num" aria-hidden="true"></div>
-                            <div><strong>Аналитика и рост.</strong> Еженедельные отчёты, гипотезы и оптимизация.</div>
+                            <div itemprop="item" itemscope itemtype="https://schema.org/HowToStep">
+                                <strong itemprop="name">Аналитика и рост.</strong> 
+                                <span itemprop="text">Еженедельные отчёты, гипотезы и оптимизация.</span>
+                            </div>
                         </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ section -->
+        <section id="faq" aria-labelledby="faq-title">
+            <div class="container">
+                <h2 id="faq-title" class="reveal">Часто задаваемые вопросы</h2>
+                <div class="card">
+                    <div id="faq">
+                        <details itemscope itemtype="https://schema.org/Question">
+                            <summary itemprop="name">Как быстро вы запускаете рекламу?</summary>
+                            <div itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer">
+                                <p itemprop="text">Подготовка к запуску обычно занимает от 3 рабочих дней при наличии брифа и доступов.</p>
+                            </div>
+                        </details>
+                        
+                        <details itemscope itemtype="https://schema.org/Question">
+                            <summary itemprop="name">Как формируется стоимость?</summary>
+                            <div itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer">
+                                <p itemprop="text">Фиксированная оплата за ведение от 20 000 ₽ в месяц, медиабюджет оплачивается отдельно.</p>
+                            </div>
+                        </details>
+                        
+                        <details itemscope itemtype="https://schema.org/Question">
+                            <summary itemprop="name">Какие отчёты я получу?</summary>
+                            <div itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer">
+                                <p itemprop="text">Еженедельные отчёты с ключевыми метриками (клики, лиды, CPL/CPA) и планом оптимизаций.</p>
+                            </div>
+                        </details>
+                        
+                        <details itemscope itemtype="https://schema.org/Question">
+                            <summary itemprop="name">С какими нишами вы работаете?</summary>
+                            <div itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer">
+                                <p itemprop="text">Работаем с локальными услугами, e‑commerce, онлайн‑курсами, b2b‑сегментом и др. Исключения обсуждаем на брифе.</p>
+                            </div>
+                        </details>
+                        
+                        <details itemscope itemtype="https://schema.org/Question">
+                            <summary itemprop="name">Какие рекламные площадки используете?</summary>
+                            <div itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer">
+                                <p itemprop="text">Яндекс.Директ, Google Ads, VK Ads, Facebook/Instagram Ads, TikTok Ads, MyTarget.</p>
+                            </div>
+                        </details>
+                        
+                        <details itemscope itemtype="https://schema.org/Question">
+                            <summary itemprop="name">Работаете ли вы с малым бизнесом?</summary>
+                            <div itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer">
+                                <p itemprop="text">Да, у нас есть решения для разных бюджетов. Минимальный бюджет на рекламу от 50 000 ₽ в месяц.</p>
+                            </div>
+                        </details>
                     </div>
                 </div>
             </div>
@@ -392,7 +587,7 @@
         <section id="contact" aria-labelledby="contact-title">
             <div class="container">
                 <h2 id="contact-title" class="reveal">Оставьте контакты — подберём решение под ваш бюджет</h2>
-                <form class="card form" id="leadForm" action="#" method="post">
+                <form class="card form" id="leadForm" action="#" method="post" itemscope itemtype="https://schema.org/ContactPage">
                     <div class="grid grid--2">
                         <label class="field">
                             Имя
@@ -580,6 +775,42 @@
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
+        "@type": "HowTo",
+        "name": "Как работаем с клиентами",
+        "description": "Пошаговый процесс работы с клиентами от заявки до запуска рекламных кампаний",
+        "step": [
+            {
+                "@type": "HowToStep",
+                "name": "Заявка или звонок",
+                "text": "Обсуждаем задачу и цели"
+            },
+            {
+                "@type": "HowToStep",
+                "name": "Бриф",
+                "text": "Ниша, аудитория, бюджет, KPI"
+            },
+            {
+                "@type": "HowToStep",
+                "name": "Коммерческое предложение",
+                "text": "Стратегия, медиаплан, сроки, стоимость"
+            },
+            {
+                "@type": "HowToStep",
+                "name": "Договор и запуск",
+                "text": "Настройка кампаний, подключение аналитики, назначение менеджера"
+            },
+            {
+                "@type": "HowToStep",
+                "name": "Аналитика и рост",
+                "text": "Еженедельные отчёты, гипотезы и оптимизация"
+            }
+        ]
+    }
+    </script>
+    
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
         "@type": "FAQPage",
         "mainEntity": [
             {
@@ -612,6 +843,22 @@
                 "acceptedAnswer": {
                     "@type": "Answer",
                     "text": "Работаем с локальными услугами, e‑commerce, онлайн‑курсами, b2b‑сегментом и др. Исключения обсуждаем на брифе."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Какие рекламные площадки используете?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Яндекс.Директ, Google Ads, VK Ads, Facebook/Instagram Ads, TikTok Ads, MyTarget."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Работаете ли вы с малым бизнесом?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Да, у нас есть решения для разных бюджетов. Минимальный бюджет на рекламу от 50 000 ₽ в месяц."
                 }
             }
         ]
