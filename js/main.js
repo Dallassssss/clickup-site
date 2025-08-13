@@ -397,6 +397,25 @@ document.addEventListener('DOMContentLoaded', () => {
     // Initialize carousels
     initCarousels();
     
+    // Mobile sticky header fallback
+    const header = document.querySelector('header');
+    if (header && window.innerWidth <= 680) {
+        let lastScrollTop = 0;
+        window.addEventListener('scroll', () => {
+            const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            if (scrollTop > 0) {
+                header.style.position = 'fixed';
+                header.style.top = '0';
+                header.style.left = '0';
+                header.style.right = '0';
+                header.style.zIndex = '50';
+            } else {
+                header.style.position = 'sticky';
+            }
+            lastScrollTop = scrollTop;
+        });
+    }
+    
     // Set current year in footer
     document.getElementById('year').textContent = new Date().getFullYear();
 });

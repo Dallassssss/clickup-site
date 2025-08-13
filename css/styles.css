@@ -141,6 +141,9 @@ header {
     -webkit-backdrop-filter: saturate(140%) blur(8px);
     will-change: transform;
     width: 100%;
+    /* Ensure sticky works on mobile */
+    position: -webkit-sticky;
+    position: sticky;
 }
 
 .nav {
@@ -877,6 +880,12 @@ body.no-scroll {
 
 @media (max-width: 680px) {
     /* base mobile layout */
+    header {
+        position: -webkit-sticky;
+        position: sticky;
+        top: 0;
+        z-index: 50;
+    }
     .nav__links {
         display: none;
     }
