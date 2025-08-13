@@ -1,0 +1,75 @@
+<!-- Header -->
+<header>
+    <div class="container nav" role="navigation" aria-label="Основная навигация">
+        <nav aria-label="Хлебные крошки" style="display:none">
+            <ol itemscope itemtype="https://schema.org/BreadcrumbList">
+                <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+                    <a itemprop="item" href="https://clickup.by/">
+                        <span itemprop="name">Главная</span>
+                    </a>
+                    <meta itemprop="position" content="1" />
+                </li>
+            </ol>
+        </nav>
+        <a class="logo" href="/" aria-label="ClickUp.by главная">
+            <span class="logo__dot" aria-hidden="true"></span>
+            <span>ClickUp.by</span>
+        </a>
+        
+        <nav class="nav__links" aria-label="Меню">
+            <a href="/#services">Услуги</a>
+            <a href="/#benefits">Почему мы</a>
+            <a href="/cases">Кейсы</a>
+            <a href="/#process">Этапы</a>
+            <a href="/#contact">Контакты</a>
+        </nav>
+        
+        <div class="nav__cta">
+            <a class="btn btn--outline" href="/#contact">Коммерческое</a>
+            <button class="btn btn--brand burger" id="burger" aria-expanded="false" aria-controls="mobileMenu" aria-label="Открыть меню">
+                Меню
+            </button>
+        </div>
+    </div>
+    
+    <nav id="mobileMenu" class="container mobile-nav" aria-label="Мобильное меню">
+        <a href="/#services">Услуги</a>
+        <a href="/#benefits">Почему мы</a>
+        <a href="/cases">Кейсы</a>
+        <a href="/#process">Этапы</a>
+        <a href="/#contact">Контакты</a>
+    </nav>
+</header>
+
+<!-- Trust badges -->
+<div class="trust">
+    <div class="container trust__row">
+        <span class="badge" title="Сертифицировано VK Ads">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                <path d="M20 6L9 17l-5-5"/>
+            </svg>
+            VK Ads Certified
+        </span>
+        <span class="badge" title="Специалист Яндекс.Директ">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                <path d="M20 6L9 17l-5-5"/>
+            </svg>
+            Яндекс.Директ: Специалист
+        </span>
+        <span class="badge" title="Сквозная аналитика">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                <path d="M3 3v18h18"/>
+                <path d="M7 15l4-4 3 3 5-6"/>
+            </svg>
+            Сквозная аналитика
+        </span>
+        <span class="badge" title="A/B‑тесты">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                <circle cx="8" cy="8" r="3"/>
+                <circle cx="16" cy="16" r="3"/>
+                <path d="M11 9l2 2"/>
+            </svg>
+            A/B‑тесты
+        </span>
+    </div>
+</div>
