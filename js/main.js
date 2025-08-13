@@ -398,23 +398,48 @@ document.addEventListener('DOMContentLoaded', () => {
     initCarousels();
     
     // Mobile sticky header fallback
-    const header = document.querySelector('header');
-    if (header && window.innerWidth <= 680) {
-        let lastScrollTop = 0;
-        window.addEventListener('scroll', () => {
-            const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-            if (scrollTop > 0) {
-                header.style.position = 'fixed';
-                header.style.top = '0';
-                header.style.left = '0';
-                header.style.right = '0';
-                header.style.zIndex = '50';
-            } else {
-                header.style.position = 'sticky';
-            }
-            lastScrollTop = scrollTop;
-        });
-    }
+const header = document.querySelector('header');
+if (header && window.innerWidth <= 680) {
+    let lastScrollTop = 0;
+    let isSticky = false;
+    
+    window.addEventListener('scroll', () => {
+        const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+        
+        if (scrollTop > 10 && !isSticky) {
+            header.style.position = 'fixed';
+            header.style.top = '0';
+            header.style.left = '0';
+            header.style.right = '0';
+            header.style.zIndex = '50';
+            header.style.width = '100%';
+            header.style.background = 'rgba(11,11,12,0.95)';
+            header.style.backdropFilter = 'saturate(140%) blur(8px)';
+            header.style.webkitBackdropFilter = 'saturate(140%) blur(8px)';
+            header.style.borderBottom = '1px solid var(--border)';
+            isSticky = true;
+        } else if (scrollTop <= 10 && isSticky) {
+            header.style.position = 'sticky';
+            header.style.background = '';
+            header.style.backdropFilter = '';
+            header.style.webkitBackdropFilter = '';
+            isSticky = false;
+        }
+        
+        lastScrollTop = scrollTop;
+    });
+    
+    // Also handle resize events
+    window.addEventListener('resize', () => {
+        if (window.innerWidth > 680) {
+            header.style.position = 'sticky';
+            header.style.background = '';
+            header.style.backdropFilter = '';
+            header.style.webkitBackdropFilter = '';
+            isSticky = false;
+        }
+    });
+}
     
     // Set current year in footer
     document.getElementById('year').textContent = new Date().getFullYear();
