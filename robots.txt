@@ -1,6 +1,0 @@
-User-agent: *
-Allow: /
-
-# Указываем путь к карте сайта
-Sitemap: https://clickup.by/sitemap.xml
-
